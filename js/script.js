@@ -1,15 +1,11 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-
-    
     const hamburgerBtn = document.querySelector('.hamburger-btn');
     const navMenu = document.querySelector('.nav-menu');
 
-    
-    hamburgerBtn.addEventListener('click', () => {
-
-        hamburgerBtn.classList.toggle('is-active');
-        navMenu.classList.toggle('is-active');
-    });
-
+    if (hamburgerBtn && navMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('is-active');
+            navMenu.classList.toggle('is-active');
+        });
+    }
 });
