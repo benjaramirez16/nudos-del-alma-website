@@ -133,6 +133,7 @@ main > section > h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 30px;
+    align-items: stretch;
 }
 .producto-item {
     background-color: var(--color-blanco);
@@ -257,6 +258,64 @@ main > section > h2 {
 .contact-form button:hover,
 .add-to-cart-btn:hover {
     background-color: var(--color-secundario); 
+}
+
+/* ==========================================================================
+   NUEVOS ESTILOS PARA LA PÁGINA DE PRODUCTOS
+   ========================================================================== */
+
+/* --- Título Separador de Categorías --- */
+.category-separator {
+    font-size: 2.2em;
+    text-align: center;
+    margin-top: 60px; /* Más espacio arriba de cada nueva sección */
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.category-separator::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%); /* Truco para centrar la línea */
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-acento-suave);
+}
+
+/* --- Badges o Etiquetas de Producto --- */
+.producto-item {
+    position: relative; /* ¡MUY IMPORTANTE! Para posicionar el badge dentro */
+    overflow: hidden; /* Oculta partes del badge que se salgan de la tarjeta */
+}
+
+/* Estilo base para todos los badges */
+.badge-new, .badge-bestseller, .badge-offer {
+    position: absolute;
+    top: 15px;
+    right: -40px; /* Lo empezamos fuera para rotarlo */
+    transform: rotate(45deg);
+    
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 5px 40px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2; /* Para que esté por encima de la imagen */
+}
+
+/* Colores específicos para cada tipo de badge */
+.badge-new {
+    background-color: #3498db; /* Un azul para lo nuevo */
+}
+.badge-bestseller {
+    background-color: #e74c3c; /* Un rojo para destacar lo más vendido */
+}
+.badge-offer {
+    background-color: #2ecc71; /* Un verde para las ofertas */
 }
 
 /* ==========================================================================
@@ -449,6 +508,15 @@ footer {
     border-top: 1px solid #444;
     font-size: 0.8em;
     color: #999;
+}
+
+.breadcrumb-item a {
+    color: var(--color-secundario);
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--color-primario);
 }
 
 /* ==========================================================================

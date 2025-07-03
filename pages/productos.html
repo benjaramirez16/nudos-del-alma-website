@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -38,86 +39,160 @@
     </header>
 
     <main>
+        <div class="container py-3"> <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Productos</li>
+                </ol>
+            </nav>
+        </div>
         <section id="catalogo">
             <h2>Catálogo Completo</h2>
 
-            <h3>Macramé</h3>
+            <h3 class="category-separator">Macramé</h3>
             <div class="product-grid-container">
                 <a href="detalle-producto.html" class="product-card-link">
                     <article class="producto-item">
+                        <div class="badge-new">¡Nuevo!</div>
                         <div class="product-image-wrapper"><img src="/images/tapizmacrame.jpg" alt="Tapiz de macramé grande"></div>
                         <h4>Tapiz "Bosque Encantado"</h4>
                         <p>Una pieza central majestuosa para cualquier pared.</p>
-                        <span>$ 5,200.00 ARS</span>
+                        <span>$ 4,500.00 ARS</span>
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                <a href="detalle-producto.html" class="product-card-link">
+                <a href="#" class="product-card-link">
                     <article class="producto-item">
-                        <div class="product-image-wrapper"><img src="/images/imagenalmohadon.jpg" alt="Almohadón tejido"></div>
-                        <h4>Almohadón "Nube"</h4>
-                        <p>Suavidad y diseño en este almohadón tejido.</p>
-                        <span>$ 3,800.00 ARS</span>
+                        <div class="product-image-wrapper"><img src="/images/tapiz-circular-producto.jpeg" alt="Tapiz de macramé circular"></div>
+                        <h4>Tapiz "Sol Naciente"</h4>
+                        <p>Diseño circular que irradia calidez y estilo bohemio.</p>
+                        <span>$ 4,500.00 ARS</span>
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                </div>
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper"><img src="/images/portamacetas-producto.jpg" alt="Portamaceta colgante"></div>
+                        <h4>Portamaceta "Edén"</h4>
+                        <p>Ideal para tus plantas, hecho con algodón reciclado.</p>
+                        <span>$ 2,900.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+            </div>
 
-            <h3>Tejidos</h3>
+            <h3 class="category-separator">Tejidos</h3>
             <div class="product-grid-container">
-                <a href="detalle-producto.html" class="product-card-link">
+                <a href="#" class="product-card-link">
                     <article class="producto-item">
-                        <div class="product-image-wrapper"><img src="/images/tapizmacrame.jpg" alt="Manta tejida a mano"></div>
+                        <div class="badge-bestseller">Más Vendido</div>
+                        <div class="product-image-wrapper"><img src="/images/manta-sillon-producto.jpg" alt="Manta tejida a mano"></div>
                         <h4>Manta "Abrazo"</h4>
                         <p>Manta suave y cálida, perfecta para el sofá.</p>
                         <span>$ 7,800.00 ARS</span>
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                 </div>
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper"><img src="/images/imagenalmohadon.jpg" alt="Almohadón tejido con textura"></div>
+                        <h4>Almohadón "Nube"</h4>
+                        <p>Suavidad y diseño en este almohadón artesanal.</p>
+                        <span>$ 3,800.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper"><img src="/images/camino-mesa-producto.jpg" alt="Camino de mesa tejido"></div>
+                        <h4>Camino de Mesa "Rústico"</h4>
+                        <p>Añade un toque artesanal y elegante a tu comedor.</p>
+                        <span>$ 4,200.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+            </div>
+
+            <h3 class="category-separator">Decoración</h3>
+            <div class="product-grid-container">
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper"><img src="/images/espejo-producto.jpeg" alt="Espejo con marco de macramé"></div>
+                        <h4>Espejo "Aura"</h4>
+                        <p>Un espejo decorativo con un delicado marco de macramé.</p>
+                        <span>$ 6,500.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper"><img src="/images/cuenco-producto.jpg" alt="Cuenco de cerámica artesanal"></div>
+                        <h4>Cuenco "Tierra"</h4>
+                        <p>Cuenco de cerámica pintado a mano, pieza única.</p>
+                        <span>$ 2,500.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="badge-offer">Oferta</div>
+                        <div class="product-image-wrapper"><img src="/images/posavasos-producto.jpeg" alt="Set de posavasos de macramé"></div>
+                        <h4>Set de Posavasos (x4)</h4>
+                        <p>Protege tus superficies con un toque de estilo artesanal.</p>
+                        <span>$ 1,800.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+            </div>
             
         </section>
     </main>
 
     <footer>
         <div class="footer-container">
-            <div class="footer-col">
-                <a href="/index.html" class="footer-logo-link">
-                    <img src="/images/logo.jpg" alt="Logo de Nudos Del Alma" class="footer-logo-image">
-                </a>
-                <p class="footer-about">
-                    Creando piezas únicas de macramé y tejido para darle calidez y personalidad a tu hogar.
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="/index.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
+        
+        <div class="footer-col">
+            <a href="index.html" class="footer-logo-link">
+                <img src="/images/logo.jpg" alt="Logo de Nudos Del Alma" class="footer-logo-image">
+            </a>
+            <p class="footer-about">
+                Creando piezas únicas de macramé y tejido para darle calidez y personalidad a tu hogar.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/pages/productos.html">Productos</a></li>
+                <li><a href="/pages/nosotros.html">Nosotros</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Ayuda</h4>
+            <ul>
+                <li><a href="/pages/preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="/pages/contacto.html">Contacto</a></li>
                 </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Ayuda</h4>
-                <ul>
-                    <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Síguenos</h4>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/nudosdelalma77/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/people/Nudos-del-alma/61558690349085/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
-                </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Síguenos</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/nudosdelalma77/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/people/Nudos-del-alma/61558690349085/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Nudos Del Alma Macrame & Deco - Todos los derechos reservados.</p>
-        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Nudos Del Alma Macrame & Deco - Todos los derechos reservados.</p>
+    </div>
     </footer>
 
-    <script src="/js/script.js" defer></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
