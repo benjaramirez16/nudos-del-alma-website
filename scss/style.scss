@@ -6,6 +6,7 @@
 // 1. Abstracts: variables, mixins, funciones...
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
+@import 'abstracts/animations';
 
 // 2. Base: estilos globales, tipografía...
 @import 'base/typography';
@@ -16,6 +17,7 @@
 @import 'components/buttons';
 @import 'components/cards';
 @import 'components/forms';
+@import 'components/accordion';
 
 // 4. Layout: header, footer, grillas...
 @import 'layout/header';
@@ -24,3 +26,5 @@
 
 // 5. Pages: estilos específicos para páginas...
 @import 'pages/home';
+@import 'pages/nosotros';
+@import 'pages/contacto';

@@ -1,0 +1,52 @@
+// ==========================================================================
+//   COMPONENTES: ACORDEÓN (FAQ)
+// ==========================================================================
+
+.faq-section {
+    max-width: 800px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.faq-item {
+    border-bottom: 1px solid $color-acento-suave;
+    padding: 20px 0;
+
+    summary {
+        font-size: 1.3em;
+        font-weight: bold;
+        font-family: $font-titulos;
+        color: $color-primario;
+        cursor: pointer;
+        list-style: none; // Oculta el marcador/triángulo por defecto
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::-webkit-details-marker {
+            display: none; // Oculta el marcador en Safari
+        }
+
+        // Flecha personalizada
+        &::after {
+            content: '\f078'; // Código de ícono de Font Awesome (chevron-down)
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: $color-secundario;
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    .faq-content {
+        padding: 20px 10px 0 10px;
+        color: $color-texto-principal;
+        line-height: 1.7;
+    }
+
+    // Cuando el acordeón está abierto
+    &[open] {
+        summary::after {
+            transform: rotate(180deg);
+        }
+    }
+}

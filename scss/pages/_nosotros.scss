@@ -1,0 +1,110 @@
+// ==========================================================================
+//   PAGES: NOSOTROS (COMPLETO CON LAYOUT Y ANIMACIÓN)
+// ==========================================================================
+
+.page-title-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: lighten($color-acento-suave, 5%);
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+        color: $color-secundario;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.feature-section,
+.values-section {
+    opacity: 0; // Partimos de una base oculta para la animación
+
+    // Cuando JS añada esta clase, la sección se animará
+    &.is-visible {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+}
+
+.feature-section {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 20px;
+
+    .feature-image {
+        flex: 1;
+
+        img {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .feature-text {
+        flex: 1;
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+    }
+
+    // Modificador para invertir el orden
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+
+        &.reverse {
+            flex-direction: column;
+        }
+
+        .feature-text h2 {
+            font-size: 2.2em;
+        }
+    }
+}
+
+.values-section {
+    background-color: $color-blanco;
+    text-align: center;
+
+    .values-grid {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .value-item {
+        i {
+            font-size: 3em;
+            color: $color-secundario;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    }
+}
