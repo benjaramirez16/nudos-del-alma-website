@@ -72,3 +72,41 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ==========================================================================
+    //   4. INICIALIZACIÓN DEL CARRUSEL SWIPER
+    // ==========================================================================
+    const swiper = new Swiper('.featured-products-carousel', {
+        // Cuántos slides se ven a la vez
+        slidesPerView: 1,
+        // Espacio entre slides
+        spaceBetween: 20,
+        // El carrusel es un bucle infinito
+        loop: true,
+      
+        // Paginación (los puntitos)
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      
+        // Flechas de navegación
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // Responsive: cambia la cantidad de slides según el ancho de la pantalla
+        breakpoints: {
+            // Cuando la pantalla sea >= 768px
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 25
+            },
+            // Cuando la pantalla sea >= 1024px
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          }
+      });

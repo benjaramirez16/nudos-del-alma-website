@@ -1,0 +1,45 @@
+// ==========================================================================
+//   COMPONENTES: CARRUSEL 
+// ==========================================================================
+
+.featured-products-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+    position: relative;
+
+    h2 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+
+    .swiper-slide {
+        height: auto; // Permite que el contenido defina la altura
+        display: flex;
+        align-items: stretch; // Asegura que las tarjetas se estiren
+    }
+
+    .producto-item {
+        width: 100%; // La tarjeta ocupa todo el ancho del slide
+        height: 100%; 
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: $color-primario;
+
+        &:hover {
+            color: $color-secundario;
+        }
+    }
+
+    .swiper-pagination {
+        position: static; 
+        margin-top: 30px; // Les da su propio espacio por debajo
+    }
+
+    .swiper-pagination-bullet-active {
+        background: $color-primario;
+    }
+}
