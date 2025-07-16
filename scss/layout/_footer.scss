@@ -1,0 +1,88 @@
+// ==========================================================================
+//   LAYOUT: FOOTER
+// ==========================================================================
+
+footer {
+    background-color: $color-primario;
+    color: #ccc; 
+    padding: 50px 20px 20px 20px;
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto 30px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px;
+    }
+
+    .footer-col {
+        h4 {
+            font-family: $font-principal;
+            color: $color-blanco;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 40px;
+                height: 2px;
+                background-color: $color-acento-suave;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+
+            a {
+                color: #ccc;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: $color-blanco;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .footer-logo-image {
+        height: 40px;
+        width: auto;
+        margin-bottom: 15px;
+    }
+
+    .footer-about {
+        font-size: 0.9em;
+        line-height: 1.7;
+    }
+
+    .social-icons a {
+        color: inherit;
+        font-size: 1.8em; 
+        margin-right: 20px; 
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-blanco;
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #444;
+        font-size: 0.8em;
+        color: #999;
+    }
+}

@@ -1,0 +1,26 @@
+// ==========================================================================
+//   ARCHIVO PRINCIPAL DE SASS
+//   Este archivo importa todos los parciales en el orden correcto.
+// ==========================================================================
+
+// 1. Abstracts: variables, mixins, funciones...
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// 2. Base: estilos globales, tipografía...
+@import 'base/typography';
+@import 'base/reset';
+
+
+// 3. Components: botones, tarjetas, formularios...
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/forms';
+
+// 4. Layout: header, footer, grillas...
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/grid';
+
+// 5. Pages: estilos específicos para páginas...
+@import 'pages/home';

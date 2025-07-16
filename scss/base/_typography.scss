@@ -1,0 +1,45 @@
+// ==========================================================================
+//   BASE: TIPOGRAFÍA (CON RESPONSIVE)
+// ==========================================================================
+
+body {
+    font-family: $font-principal;
+    line-height: 1.6;
+    background-color: $color-fondo-claro;
+    color: $color-texto-principal;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-titulos; 
+    color: $color-primario;
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+main > section > h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 40px;
+    @media (max-width: 768px) {
+        font-size: 1.8em;
+    }
+}
+
+// H1 de detalle de producto
+.product-info h1 {
+    @media (max-width: 768px) {
+        font-size: 2.2em;
+    }
+}

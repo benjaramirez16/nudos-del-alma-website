@@ -1,0 +1,38 @@
+// ==========================================================================
+//   COMPONENTES: FORMULARIOS
+// ==========================================================================
+
+.contact-form {
+    display: grid;
+    gap: 15px;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: $color-blanco;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    label {
+        font-weight: bold;
+        color: $color-primario;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: 1em;
+        transition: all 0.3s ease-in-out;
+        resize: vertical;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: $color-secundario;
+            box-shadow: 0 0 8px rgba(138, 121, 93, 0.4);
+        }
+    }
+}

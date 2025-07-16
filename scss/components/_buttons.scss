@@ -1,0 +1,38 @@
+// ==========================================================================
+//   COMPONENTES: BOTONES
+// ==========================================================================
+
+.btn {
+    display: inline-block;
+    background-color: $color-secundario;
+    color: $color-blanco;
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background-color: $color-primario;
+        transform: translateY(-3px);
+    }
+}
+
+// Botones de los formularios y "Agregar al carrito"
+.contact-form button,
+.add-to-cart-btn {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: $color-primario;
+    color: $color-blanco;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $color-secundario;
+    }
+}
