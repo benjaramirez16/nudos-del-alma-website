@@ -64,13 +64,30 @@
             </nav>
         </div>
         <div class="product-detail-container">
-            <div class="product-image-gallery">
-                <picture>
-                    <source srcset="../images/tapizmacrame.webp" type="image/webp">
-                    <source srcset="../images/tapizmacrame-opt.jpg" type="image/jpeg">
-                    <img src="../images/tapizmacrame-opt.jpg" alt="Vista principal del Tapiz de Macramé Bosque Encantado" class="main-product-image">
-                </picture>
-            </div>
+           <div class="product-image-gallery">
+    <div class="main-image-container">
+        <picture>
+            <source id="main-product-image-webp" srcset="../images/tapizmacrame.webp" type="image/webp">
+            <img id="main-product-image" src="../images/tapizmacrame-opt.jpg" alt="Vista principal del Tapiz de Macramé Bosque Encantado">
+        </picture>
+    </div>
+        <div class="product-thumbnails">
+            <img src="../images/tapizmacrame-thumb.jpg" 
+             data-large-webp="../images/tapizmacrame.webp" 
+             data-large-jpg="../images/tapizmacrame-opt.jpg" 
+             alt="Vista frontal del tapiz" class="thumbnail-image active-thumbnail">
+        
+            <img src="../images/tapizmacrame-detalle-thumb.jpg" 
+             data-large-webp="../images/tapizmacrame-detalle.webp" 
+             data-large-jpg="../images/tapizmacrame-detalle-opt.jpg" 
+             alt="Detalle del tejido del tapiz" class="thumbnail-image">
+        
+            <img src="../images/tapizmacrame-ambiente-thumb.jpg" 
+             data-large-webp="../images/tapizmacrame-ambiente.webp" 
+             data-large-jpg="../images/tapizmacrame-ambiente-opt.jpg" 
+             alt="Tapiz en un ambiente decorado" class="thumbnail-image">
+        </div>
+    </div>
             <div class="product-info">
                 <h1>Tapiz de Macramé "Bosque Encantado"</h1>
                 <p class="product-price">$ 4,500.00 ARS</p>
@@ -89,8 +106,55 @@
                 <button type="button" class="add-to-cart-btn">Agregar al Carrito</button>
             </div>
         </div>
+        <section class="related-products-section">
+            <h2>También te podría interesar</h2>
+            <div class="product-grid-container">
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper">
+                            <picture>
+                                <source srcset="../images/tapiz-circular-producto.webp" type="image/webp">
+                                <img src="../images/tapiz-circular-producto-opt.jpeg" alt="Tapiz de macramé circular Sol Naciente">
+                            </picture>
+                        </div>
+                        <h4>Tapiz "Sol Naciente"</h4>
+                        <p>Diseño circular que irradia calidez y estilo bohemio.</p>
+                        <span>$ 4,500.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper">
+                            <picture>
+                                <source srcset="../images/manta-sillon-producto.webp" type="image/webp">
+                                <img src="../images/manta-sillon-producto-opt.jpg" alt="Manta tejida a mano Abrazo">
+                            </picture>
+                        </div>
+                        <h4>Manta "Abrazo"</h4>
+                        <p>Manta suave y cálida, perfecta para el sofá.</p>
+                        <span>$ 7,800.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+                <a href="#" class="product-card-link">
+                    <article class="producto-item">
+                        <div class="product-image-wrapper">
+                            <picture>
+                                <source srcset="../images/espejo-producto.webp" type="image/webp">
+                                <img src="../images/espejo-producto-opt.jpeg" alt="Espejo con marco de macramé Aura">
+                            </picture>
+                        </div>
+                        <h4>Espejo "Aura"</h4>
+                        <p>Un espejo decorativo con un delicado marco de macramé.</p>
+                        <span>$ 6,500.00 ARS</span>
+                        <span class="view-product-btn">Ver Detalle</span>
+                    </article>
+                </a>
+            </div>
+        </section>
     </main>
-
+        
     <footer>
         <div class="footer-container">
             <div class="footer-col">

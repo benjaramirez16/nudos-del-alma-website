@@ -46,3 +46,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// ==========================================================================
+    //   3. LÓGICA DE LA GALERÍA DE IMÁGENES
+    // ==========================================================================
+    const mainImage = document.getElementById('main-product-image');
+    const mainImageWebp = document.getElementById('main-product-image-webp');
+    const thumbnails = document.querySelectorAll('.thumbnail-image');
+
+    if (mainImage && thumbnails.length > 0) {
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                // Cambia la imagen principal
+                const largeJpg = thumb.dataset.largeJpg;
+                const largeWebp = thumb.dataset.largeWebp;
+                
+                mainImage.src = largeJpg;
+                if (mainImageWebp) {
+                    mainImageWebp.srcset = largeWebp;
+                }
+
+                // Actualiza la clase activa
+                thumbnails.forEach(innerThumb => innerThumb.classList.remove('active-thumbnail'));
+                thumb.classList.add('active-thumbnail');
+            });
+        });
+    }
