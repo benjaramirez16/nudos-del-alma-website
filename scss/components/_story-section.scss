@@ -1,0 +1,73 @@
+// ==========================================================================
+//   COMPONENTES: STORY SECTION (HOMEPAGE)
+// ==========================================================================
+
+.story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px; // Aumentamos el padding para dar más "aire"
+
+    .story-text {
+        padding-right: 20px;
+
+        h5 {
+            font-family: $font-principal;
+            font-weight: bold;
+            color: $color-secundario;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 3em; // Título grande e impactante
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 450px; // Limitamos el ancho de línea para fácil lectura
+            margin-bottom: 30px;
+        }
+
+        .link-arrow {
+            color: $color-primario;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $color-secundario;
+            }
+        }
+    }
+
+    // Responsive para móvil
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        padding: 60px 20px;
+
+        .story-image {
+            margin-bottom: 30px;
+        }
+
+        .story-text {
+            padding-right: 0;
+            text-align: center;
+
+            h2 {
+                font-size: 2.5em;
+            }
+
+            p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}

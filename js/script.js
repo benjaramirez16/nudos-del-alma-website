@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // ==========================================================================
+    //   1. LÓGICA DEL MENÚ HAMBURGUESA
+    //   Este bloque se encarga de mostrar y ocultar el menú en móviles.
+    // ==========================================================================
     const hamburgerBtn = document.querySelector('.hamburger-btn');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -8,14 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('is-active');
         });
     }
-});
 
-// ==========================================================================
-//   ANIMACIÓN DE SCROLL CON INTERSECTION OBSERVER
-// ==========================================================================
-document.addEventListener('DOMContentLoaded', () => {
-
-    const sectionsToAnimate = document.querySelectorAll('.feature-section, .values-section');
+    // ==========================================================================
+    //   2. ANIMACIÓN DE SCROLL CON INTERSECTION OBSERVER
+    //   Este bloque se encarga de animar cualquier sección que tenga la clase
+    //   '.animate-on-scroll' cuando aparece en la pantalla.
+    // ==========================================================================
+    
+    // Seleccionamos TODOS los elementos que tengan la clase '.animate-on-scroll'
+    const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
 
     if (sectionsToAnimate.length > 0) {
         const observer = new IntersectionObserver((entries, observer) => {
@@ -24,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
                     // Dejamos de observar la sección una vez que la animación ha ocurrido
+                    // para mejorar el rendimiento.
                     observer.unobserve(entry.target);
                 }
             });
@@ -32,8 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
             threshold: 0.1 // La animación se dispara cuando al menos el 10% de la sección es visible
         });
 
+        // Le decimos al observador que vigile cada una de las secciones seleccionadas
         sectionsToAnimate.forEach(section => {
             observer.observe(section);
         });
     }
+
 });

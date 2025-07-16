@@ -12,3 +12,14 @@
         transform: translateY(0);
     }
 }
+
+// Clase genérica para cualquier elemento que queramos animar al hacer scroll
+.animate-on-scroll {
+    opacity: 0; // El estado inicial es invisible
+    transition: opacity 0.6s ease-out;
+
+    // Cuando JavaScript añade la clase .is-visible, se activa la animación
+    &.is-visible {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+}
