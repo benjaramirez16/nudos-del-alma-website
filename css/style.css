@@ -913,4 +913,16 @@ footer .footer-bottom {
   text-align: center;
   font-size: 2.5em;
   margin-bottom: 40px;
+}
+
+.breadcrumb-item a {
+  color: #8A795D;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.breadcrumb-item a:hover {
+  color: #5D503C;
+}
+.breadcrumb-item.active {
+  color: #333;
 }/*# sourceMappingURL=style.css.map */

@@ -31,3 +31,6 @@
 @import 'pages/nosotros';
 @import 'pages/contacto';
 @import 'pages/detalle-producto';
+
+// 6. Vendors: Sobreescritura de estilos de librerías externas
+@import 'vendors/bootstrap-overrides';

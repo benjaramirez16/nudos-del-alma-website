@@ -1,0 +1,23 @@
+// ==========================================================================
+//   VENDORS: BOOTSTRAP OVERRIDES
+// ==========================================================================
+
+// Estilos para el Breadcrumb
+.breadcrumb-item {
+    
+    // Enlaces del breadcrumb
+    a {
+        color: $color-secundario; // Usamos nuestro color secundario
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-primario; // Cambia a nuestro color primario en hover
+        }
+    }
+
+    // La página activa en el breadcrumb
+    &.active {
+        color: $color-texto-principal; // Un color más oscuro para indicar que está activa
+    }
+}
