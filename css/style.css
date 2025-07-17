@@ -616,7 +616,7 @@ footer .footer-bottom {
   padding: 60px 20px;
   text-align: center;
   color: #ffffff;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/ilustrativa-hero-bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/hero-background.webp");
   background-size: cover;
   background-position: center;
 }
