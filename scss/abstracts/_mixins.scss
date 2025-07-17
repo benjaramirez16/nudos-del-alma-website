@@ -1,0 +1,36 @@
+// ==========================================================================
+//   ABSTRACTS: MIXINS
+// ==========================================================================
+
+// Centra contenido horizontal y verticalmente usando Flexbox
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Genera un estilo de botón base, con colores personalizables
+@mixin button-style($bg-color, $text-color, $hover-bg-color) {
+    display: inline-block;
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background-color: $hover-bg-color;
+        transform: translateY(-3px);
+    }
+}
+
+// Maneja cualquier media query de max-width de forma más legible
+@mixin breakpoint($point) {
+    @media (max-width: $point) {
+        @content;
+    }
+}
