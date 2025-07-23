@@ -45,8 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-});
-
 // ==========================================================================
     //   3. LÓGICA DE LA GALERÍA DE IMÁGENES
     // ==========================================================================
@@ -76,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     //   4. INICIALIZACIÓN DEL CARRUSEL SWIPER
     // ==========================================================================
-    const swiper = new Swiper('.featured-products-carousel', {
+    const swiper = new swiper('.featured-products-carousel', {
         // Cuántos slides se ven a la vez
         slidesPerView: 1,
         // Espacio entre slides
@@ -110,3 +108,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
       });
+});
