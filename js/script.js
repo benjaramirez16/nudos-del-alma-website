@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('is-active');
         });
     }
+});
 
     // ==========================================================================
     //   2. ANIMACIÓN DE SCROLL CON INTERSECTION OBSERVER
@@ -108,4 +109,3 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
       });
-});
