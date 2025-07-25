@@ -86,4 +86,55 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
 
+    // ==========================================================================
+    //   5. LÓGICA DEL BOTÓN "VOLVER ARRIBA"
+    // ==========================================================================
+    const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
+
+    if (scrollToTopBtn) {
+        // Muestra el botón cuando el usuario baja 300px
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('is-visible');
+            } else {
+                scrollToTopBtn.classList.remove('is-visible');
+            }
+        });
+
+        // Vuelve arriba suavemente al hacer clic
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ==========================================================================
+    //   6. LÓGICA DEL FILTRO DE PRODUCTOS
+    // ==========================================================================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('#catalogo .product-card-link');
+
+    if (filterButtons.length > 0 && productCards.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Marca el botón activo
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                // Muestra u oculta las tarjetas
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
 });

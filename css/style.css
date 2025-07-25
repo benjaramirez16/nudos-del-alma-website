@@ -360,6 +360,67 @@ main > section > h2 {
   background: #5D503C;
 }
 
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #8A795D;
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+.scroll-to-top-btn:hover {
+  background-color: #5D503C;
+}
+.scroll-to-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.product-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 2px solid #E0D8C0;
+  color: #8A795D;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover {
+  background-color: #E0D8C0;
+  border-color: #8A795D;
+}
+.filter-btn.active {
+  background-color: #5D503C;
+  color: #ffffff;
+  border-color: #5D503C;
+}
+
+.product-card-link.hidden {
+  display: none;
+}
+
 .navbar {
   width: 100%;
   background-color: #E0D8C0;
@@ -619,6 +680,7 @@ footer .footer-bottom {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/hero-background.webp");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 #hero h2 {
   color: #ffffff;
@@ -745,7 +807,7 @@ footer .footer-bottom {
 .page-title-section {
   text-align: center;
   padding: 40px 20px;
-  background-color: #e8e3d1;
+  background-color: rgb(232.4095744681, 226.579787234, 209.0904255319);
 }
 .page-title-section h1 {
   margin-bottom: 10px;

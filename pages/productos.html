@@ -118,10 +118,16 @@
         </section>
         <section id="catalogo">
             <h2>Catálogo Completo</h2>
+            <div class="product-filters">
+            <button class="filter-btn active" data-filter="all">Mostrar Todos</button>
+            <button class="filter-btn" data-filter="macrame">Macramé</button>
+            <button class="filter-btn" data-filter="tejidos">Tejidos</button>
+            <button class="filter-btn" data-filter="decoracion">Decoración</button>
+            </div>
 
             <h3 class="category-separator">Macramé</h3>
             <div class="product-grid-container">
-                <a href="detalle-producto.html" class="product-card-link">
+                <a href="detalle-producto.html" class="product-card-link" data-category="macrame">
                     <article class="producto-item">
                         <div class="badge-new">¡Nuevo!</div>
                         <div class="product-image-wrapper">
@@ -137,7 +143,7 @@
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                <a href="tapiz-sol-naciente.html" class="product-card-link">
+                <a href="tapiz-sol-naciente.html" class="product-card-link" data-category="macrame">
                     <article class="producto-item">
                         <div class="product-image-wrapper">
                             <picture>
@@ -152,7 +158,7 @@
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                <a href="portamaceta-eden.html" class="product-card-link">
+                <a href="portamaceta-eden.html" class="product-card-link" data-category="macrame">
                     <article class="producto-item">
                         <div class="product-image-wrapper">
                             <picture>
@@ -171,7 +177,7 @@
 
             <h3 class="category-separator">Tejidos</h3>
             <div class="product-grid-container">
-                <a href="manta-abrazo.html" class="product-card-link">
+                <a href="manta-abrazo.html" class="product-card-link" data-category="tejidos">
                     <article class="producto-item">
                         <div class="badge-bestseller">Más Vendido</div>
                         <div class="product-image-wrapper">
@@ -187,7 +193,7 @@
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                <a href="almohadon-nube.html" class="product-card-link">
+                <a href="almohadon-nube.html" class="product-card-link" data-category="tejidos">
                     <article class="producto-item">
                         <div class="product-image-wrapper">
                             <picture>
@@ -202,7 +208,7 @@
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                <a href="camino-mesa-rustico.html" class="product-card-link">
+                <a href="camino-mesa-rustico.html" class="product-card-link" data-category="tejidos">
                     <article class="producto-item">
                         <div class="product-image-wrapper">
                             <picture>
@@ -221,7 +227,7 @@
 
             <h3 class="category-separator">Decoración</h3>
             <div class="product-grid-container">
-                <a href="espejo-aura.html" class="product-card-link">
+                <a href="espejo-aura.html" class="product-card-link" data-category="decoracion">
                     <article class="producto-item">
                         <div class="product-image-wrapper">
                             <picture>
@@ -236,7 +242,7 @@
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                <a href="cuenco-tierra.html" class="product-card-link">
+                <a href="cuenco-tierra.html" class="product-card-link" data-category="decoracion">
                     <article class="producto-item">
                         <div class="product-image-wrapper">
                             <picture>
@@ -251,7 +257,7 @@
                         <span class="view-product-btn">Ver Detalle</span>
                     </article>
                 </a>
-                <a href="set-posavasos.html" class="product-card-link">
+                <a href="set-posavasos.html" class="product-card-link" data-category="decoracion">
                     <article class="producto-item">
                         <div class="badge-offer">Oferta</div>
                         <div class="product-image-wrapper">
@@ -270,7 +276,9 @@
             </div>
         </section>
     </main>
-
+        <a href="#" class="scroll-to-top-btn" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </a>
     <footer>
         <div class="footer-container">
             <div class="footer-col">

@@ -1,0 +1,35 @@
+// scss/components/_filters.scss
+.product-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; // Para que se adapte en móviles
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 2px solid $color-acento-suave;
+    color: $color-secundario;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: $color-acento-suave;
+        border-color: $color-secundario;
+    }
+
+    &.active {
+        background-color: $color-primario;
+        color: $color-blanco;
+        border-color: $color-primario;
+    }
+}
+
+// Clase para ocultar productos
+.product-card-link.hidden {
+    display: none;
+}
