@@ -14,10 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    //   2. LÓGICA DEL CARRITO DE COMPRAS
+    //   2. LÓGICA DEL CARRITO DE COMPRAS (VERSIÓN AVANZADA Y CORREGIDA)
     // ==========================================================================
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-    const cartIconContainer = document.querySelector('.cart-icon-container');
     const cartItemCount = document.querySelector('.cart-item-count');
 
     // Carga el carrito desde localStorage o crea uno nuevo si no existe
@@ -31,28 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Función para guardar el carrito en localStorage
+    // Función para guardar el carrito y volver a renderizar si es necesario
     const saveCart = () => {
         localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        // Si estamos en la página del carrito, la volvemos a renderizar para mostrar los cambios
+        if (document.getElementById('cart-items-container')) {
+            renderCartPage();
+        }
     };
 
     // Función para agregar un producto al carrito
-    const addToCart = (productId, productName, productPrice) => {
+    const addToCart = (productId, productName, productPrice, productImage) => {
         const existingProductIndex = cart.findIndex(item => item.id === productId);
 
         if (existingProductIndex > -1) {
-            // Si el producto ya está en el carrito, aumenta la cantidad
             cart[existingProductIndex].quantity += 1;
         } else {
-            // Si es un producto nuevo, lo añade al carrito
             cart.push({
                 id: productId,
                 name: productName,
                 price: parseFloat(productPrice),
+                image: productImage,
                 quantity: 1
             });
         }
-
         saveCart();
         updateCartIcon();
     };
@@ -61,10 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addToCartButtons.length > 0) {
         addToCartButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const { productId, productName, productPrice } = button.dataset;
-                addToCart(productId, productName, productPrice);
+                const { productId, productName, productPrice, productImage } = button.dataset;
+                addToCart(productId, productName, productPrice, productImage);
                 
-                // Feedback visual para el usuario
                 button.textContent = '¡Agregado!';
                 setTimeout(() => {
                     button.textContent = 'Agregar al Carrito';
@@ -72,27 +72,99 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    // Muestra el contenido del carrito al hacer clic en el ícono (para depuración)
-    if (cartIconContainer) {
-        cartIconContainer.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('Tu carrito está vacío.');
-            } else {
-                let cartDetails = 'Contenido del carrito:\n';
-                cart.forEach(item => {
-                    cartDetails += `- ${item.name} (x${item.quantity}) - $${item.price * item.quantity}\n`;
-                });
-                alert(cartDetails);
-            }
-        });
-    }
     
-    // Actualiza el ícono del carrito al cargar la página
+    // Actualiza el ícono del carrito al cargar cualquier página
     updateCartIcon();
 
     // ==========================================================================
-    //   3. ANIMACIÓN DE SCROLL CON INTERSECTION OBSERVER
+    //   3. LÓGICA PARA RENDERIZAR Y GESTIONAR LA PÁGINA DEL CARRITO
+    // ==========================================================================
+    const cartItemsContainer = document.getElementById('cart-items-container');
+    
+    // Esta función se encarga de "dibujar" los productos en la página del carrito
+    const renderCartPage = () => {
+        if (!cartItemsContainer) return; // Si no estamos en la página del carrito, no hace nada
+
+        const cartSummary = document.getElementById('cart-summary');
+        const cartSubtotalElem = document.getElementById('cart-subtotal');
+        const cartTotalElem = document.getElementById('cart-total');
+        const checkoutBtn = document.querySelector('.checkout-btn');
+
+        cartItemsContainer.innerHTML = ''; // Limpiamos el contenedor
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Tu carrito de compras está vacío.</p>';
+            cartSummary.style.display = 'none';
+        } else {
+            cartSummary.style.display = 'block';
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const itemHTML = `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <a href="#" class="cart-item-title">${item.name}</a>
+                            <button class="cart-item-remove" data-product-id="${item.id}">Eliminar</button>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" data-action="decrease" data-product-id="${item.id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn" data-action="increase" data-product-id="${item.id}">+</button>
+                        </div>
+                        <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += itemHTML;
+            });
+
+            cartSubtotalElem.textContent = `$${subtotal.toFixed(2)}`;
+            cartTotalElem.textContent = `$${subtotal.toFixed(2)}`;
+            checkoutBtn.disabled = false;
+        }
+    };
+
+    // Ejecuta la función para dibujar el carrito si estamos en la página correcta
+    renderCartPage();
+
+    // Event Listener para los botones de la página del carrito (CORREGIDO)
+    if (cartItemsContainer) {
+        cartItemsContainer.addEventListener('click', (e) => {
+            const target = e.target;
+            const productId = target.dataset.productId;
+            if (!productId) return;
+
+            const productIndex = cart.findIndex(item => item.id === productId);
+            if (productIndex === -1) return;
+
+            // Lógica para botones de cantidad
+            if (target.classList.contains('quantity-btn')) {
+                const action = target.dataset.action;
+                let newQuantity = cart[productIndex].quantity;
+                if (action === 'increase') newQuantity++;
+                if (action === 'decrease') newQuantity--;
+                
+                if (newQuantity > 0) {
+                    cart[productIndex].quantity = newQuantity;
+                } else {
+                    cart.splice(productIndex, 1); // Si la cantidad es 0, elimina el item
+                }
+                saveCart();
+                updateCartIcon();
+            }
+
+            // Lógica para el botón de eliminar
+            if (target.classList.contains('cart-item-remove')) {
+                cart.splice(productIndex, 1);
+                saveCart();
+                updateCartIcon();
+            }
+        });
+    }
+
+    // ==========================================================================
+    //   4. ANIMACIÓN DE SCROLL CON INTERSECTION OBSERVER
     // ==========================================================================
     const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
     if (sectionsToAnimate.length > 0) {
@@ -108,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    //   4. LÓGICA DE LA GALERÍA DE IMÁGENES
+    //   5. LÓGICA DE LA GALERÍA DE IMÁGENES
     // ==========================================================================
     const mainImage = document.getElementById('main-product-image');
     const mainImageWebp = document.getElementById('main-product-image-webp');
@@ -127,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    //   5. LÓGICA DEL FILTRO DE PRODUCTOS
+    //   6. LÓGICA DEL FILTRO DE PRODUCTOS
     // ==========================================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('#catalogo .product-card-link');
@@ -149,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    //   6. LÓGICA DEL BOTÓN "VOLVER ARRIBA"
+    //   7. LÓGICA DEL BOTÓN "VOLVER ARRIBA"
     // ==========================================================================
     const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
     if (scrollToTopBtn) {
@@ -167,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    //   7. INICIALIZACIÓN DEL CARRUSEL SWIPER
+    //   8. INICIALIZACIÓN DEL CARRUSEL SWIPER
     // ==========================================================================
     // Solo inicializa Swiper si el contenedor del carrusel existe en la página actual
     if (document.querySelector('.featured-products-carousel')) {
