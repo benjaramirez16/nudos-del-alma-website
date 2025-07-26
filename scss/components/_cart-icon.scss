@@ -1,0 +1,26 @@
+// scss/components/_cart-icon.scss
+.cart-icon-container {
+    position: relative;
+    cursor: pointer;
+    margin-left: 20px;
+
+    .fa-shopping-cart {
+        font-size: 1.5em;
+        color: $color-primario;
+    }
+
+    .cart-item-count {
+        position: absolute;
+        top: -8px;
+        right: -12px;
+        background-color: $color-badge-bestseller;
+        color: $color-blanco;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        @include flex-center; // ¡Reutilizando nuestro mixin!
+        font-size: 0.8em;
+        font-weight: bold;
+        border: 2px solid $color-blanco;
+    }
+}

@@ -421,6 +421,32 @@ main > section > h2 {
   display: none;
 }
 
+.cart-icon-container {
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.cart-icon-container .fa-shopping-cart {
+  font-size: 1.5em;
+  color: #5D503C;
+}
+.cart-icon-container .cart-item-count {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: #e74c3c;
+  color: #ffffff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+}
+
 .navbar {
   width: 100%;
   background-color: #E0D8C0;
@@ -435,8 +461,10 @@ main > section > h2 {
   width: 90%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+.navbar .logo-link {
+  margin-right: auto;
 }
 .navbar .logo-image {
   height: 50px;
