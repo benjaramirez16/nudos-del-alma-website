@@ -426,6 +426,12 @@ main > section > h2 {
   cursor: pointer;
   margin-left: 20px;
 }
+@media (max-width: 768px) {
+  .cart-icon-container {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+}
 .cart-icon-container .fa-shopping-cart {
   font-size: 1.5em;
   color: #5D503C;
