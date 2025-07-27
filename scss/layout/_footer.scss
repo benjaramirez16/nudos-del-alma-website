@@ -4,7 +4,7 @@
 
 footer {
     background-color: $color-primario;
-    color: #ccc; 
+    color: $color-texto-footer; 
     padding: 50px 20px 20px 20px;
 
     .footer-container {
@@ -44,7 +44,7 @@ footer {
             margin-bottom: 10px;
 
             a {
-                color: #ccc;
+                color: $color-texto-footer;
                 text-decoration: none;
                 transition: color 0.3s ease;
 

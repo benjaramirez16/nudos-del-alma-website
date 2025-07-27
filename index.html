@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://benjaramirez16.github.io/NudosDelAlma/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nudos Del Alma Macrame & Deco">
-
+    <link rel="preload" fetchpriority="high" as="image" href="images/hero-background.webp" type="image/jpeg">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -21,8 +21,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -33,7 +33,7 @@
                     <picture>
                         <source srcset="images/logo.webp" type="image/webp">
                         <source srcset="images/logo-opt.jpg" type="image/jpeg">
-                        <img src="images/logo-opt.jpg" alt="Logo de Nudos Del Alma" class="logo-image">
+                        <img src="images/logo-opt.jpg" alt="Logo de Nudos Del Alma" class="logo-image" width="50" height="50">
                     </picture>
                 </a>
                 <ul class="nav-menu">
@@ -104,7 +104,7 @@
                 </picture>
             </div>
             <div class="story-text">
-                <h5>NUESTRA FILOSOFÍA</h5>
+                <p class="story-subtitle">NUESTRA FILOSOFÍA</p>
                 <h2>Hecho a mano, nudo a nudo.</h2>
                 <p>Creemos en la belleza de lo simple y en el tiempo que transforma los hilos en alma. Cada pieza es una pausa, un respiro de calma para tu hogar.</p>
                 <a href="pages/nosotros.html" class="link-arrow">Conoce nuestra historia →</a>
