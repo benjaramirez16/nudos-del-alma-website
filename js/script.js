@@ -77,57 +77,61 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartIcon();
 
     // ==========================================================================
-    //   3. LÓGICA PARA RENDERIZAR Y GESTIONAR LA PÁGINA DEL CARRITO (CON WHATSAPP)
+    //   8. LÓGICA PARA RENDERIZAR Y GESTIONAR LA PÁGINA DEL CARRITO (CORREGIDO)
     // ==========================================================================
-    const cartContainer = document.getElementById('cart-items-container');
+    const cartItemsContainer = document.getElementById('cart-items-container');
     
-    // Este código solo se ejecuta si estamos en la página del carrito
-    if (cartContainer) {
+    // Esta función se encarga de "dibujar" los productos en la página del carrito
+    const renderCartPage = () => {
+        if (!cartItemsContainer) return; // Si no estamos en la página del carrito, no hace nada
+
         const cartSummary = document.getElementById('cart-summary');
         const cartSubtotalElem = document.getElementById('cart-subtotal');
         const cartTotalElem = document.getElementById('cart-total');
         const checkoutBtn = document.querySelector('.checkout-btn');
-        const tuNumeroDeWhatsApp = '542921471599'; // 
 
-        const renderCart = () => {
-            cartContainer.innerHTML = '';
+        cartItemsContainer.innerHTML = ''; // Limpiamos el contenedor
 
-            if (cart.length === 0) {
-                cartContainer.innerHTML = '<p>Tu carrito de compras está vacío.</p>';
-                cartSummary.style.display = 'none';
-            } else {
-                cartSummary.style.display = 'block';
-                let subtotal = 0;
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Tu carrito de compras está vacío.</p>';
+            cartSummary.style.display = 'none';
+        } else {
+            cartSummary.style.display = 'block';
+            let subtotal = 0;
 
-                cart.forEach(item => {
-                    subtotal += item.price * item.quantity;
-                    const itemHTML = `
-                        <div class="cart-item">
-                            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                            <div class="cart-item-details">
-                                <a href="#" class="cart-item-title">${item.name}</a>
-                                <button class="cart-item-remove" data-product-id="${item.id}">Eliminar</button>
-                            </div>
-                            <div class="cart-item-quantity">
-                                <button class="quantity-btn" data-action="decrease" data-product-id="${item.id}">-</button>
-                                <span>${item.quantity}</span>
-                                <button class="quantity-btn" data-action="increase" data-product-id="${item.id}">+</button>
-                            </div>
-                            <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const itemHTML = `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <a href="#" class="cart-item-title">${item.name}</a>
+                            <button class="cart-item-remove" data-product-id="${item.id}">Eliminar</button>
                         </div>
-                    `;
-                    cartContainer.innerHTML += itemHTML;
-                });
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" data-action="decrease" data-product-id="${item.id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn" data-action="increase" data-product-id="${item.id}">+</button>
+                        </div>
+                        <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += itemHTML;
+            });
 
-                cartSubtotalElem.textContent = `$${subtotal.toFixed(2)}`;
-                cartTotalElem.textContent = `$${subtotal.toFixed(2)}`;
-                checkoutBtn.disabled = false;
-                checkoutBtn.textContent = 'Finalizar Pedido por WhatsApp'; // Cambiamos el texto del botón
-            }
-        };
+            cartSubtotalElem.textContent = `$${subtotal.toFixed(2)}`;
+            cartTotalElem.textContent = `$${subtotal.toFixed(2)}`;
+            checkoutBtn.disabled = false;
+            checkoutBtn.textContent = 'Finalizar Pedido por WhatsApp';
+        }
+    };
 
-        // Event Delegation para manejar clics en botones +/-/eliminar
-        cartContainer.addEventListener('click', (e) => {
+    // Solo se ejecuta esta lógica si estamos en la página del carrito
+    if (cartItemsContainer) {
+        renderCartPage(); // Dibuja el estado inicial del carrito
+
+        // Listener para los botones de la página del carrito
+        cartItemsContainer.addEventListener('click', (e) => {
             const target = e.target;
             const productId = target.dataset.productId;
             if (!productId) return;
@@ -135,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productIndex = cart.findIndex(item => item.id === productId);
             if (productIndex === -1) return;
 
+            // Lógica para botones de cantidad
             if (target.classList.contains('quantity-btn')) {
                 const action = target.dataset.action;
                 let newQuantity = cart[productIndex].quantity;
@@ -144,20 +149,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (newQuantity > 0) {
                     cart[productIndex].quantity = newQuantity;
                 } else {
-                    cart.splice(productIndex, 1);
+                    cart.splice(productIndex, 1); // Si la cantidad es 0, elimina el item
                 }
-                saveCart();
-                updateCartIcon();
             }
 
+            // Lógica para el botón de eliminar
             if (target.classList.contains('cart-item-remove')) {
                 cart.splice(productIndex, 1);
-                saveCart();
-                updateCartIcon();
             }
+
+            saveCart();
+            updateCartIcon();
         });
 
-        // Evento para el botón de Checkout
+        // Listener para el botón de Checkout
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        const tuNumeroDeWhatsApp = '542921471599'; 
+        
         checkoutBtn.addEventListener('click', () => {
             let mensaje = '¡Hola! Quisiera hacer el siguiente pedido:\n\n';
             let total = 0;
@@ -170,13 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             mensaje += `*TOTAL DEL PEDIDO: $${total.toFixed(2)}*\n\n`;
             mensaje += `Quedo a la espera de los datos para el pago. ¡Gracias!`;
-
             const linkWhatsApp = `https://wa.me/${542921471599}?text=${encodeURIComponent(mensaje)}`;
-            
             window.open(linkWhatsApp, '_blank');
         });
-
-        renderCart();
     }
 
     // ==========================================================================
