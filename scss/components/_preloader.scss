@@ -1,0 +1,32 @@
+// scss/components/_preloader.scss
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: $color-fondo-claro;
+    @include flex-center;
+    transition: opacity 0.75s ease, visibility 0.75s ease;
+
+    .spinner {
+        border: 4px solid $color-acento-suave;
+        border-top: 4px solid $color-primario;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+    }
+}
+
+// Clase para ocultar el preloader con JS
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

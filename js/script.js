@@ -255,3 +255,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // -- Llamada Inicial --
     updateCartIcon();
 });
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('hidden');
+    }
+});
