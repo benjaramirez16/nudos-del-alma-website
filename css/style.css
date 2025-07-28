@@ -453,6 +453,27 @@ main > section > h2 {
   border: 2px solid #ffffff;
 }
 
+.toast-permanent {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: rgba(130, 111, 84, 0.9);
+  color: #ffffff;
+  padding: 16px 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+}
+.toast-permanent.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
 .navbar {
   width: 100%;
   background-color: #E0D8C0;

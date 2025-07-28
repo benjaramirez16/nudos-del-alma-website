@@ -21,8 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     //   2. DEFINICIÓN DE FUNCIONES PRINCIPALES
     // ==========================================================================
+
+    const showToast = (message) => {
+    const toast = document.getElementById('toast-notification');
+    const toastMessage = document.getElementById('toast-message');
+    if (!toast || !toastMessage) return;
+
+    // 1. Pone el mensaje
+    toastMessage.textContent = message;
+
+    // 2. Muestra el toast
+    toast.classList.add('show');
+
+    // 3. Lo oculta después de 3 segundos
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+    };
     
-    // -- Funciones del Carrito --
     const updateCartIcon = () => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         if (cartItemCount) {
@@ -88,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push({ id: productId, name: productName, price: parseFloat(productPrice), image: productImage, quantity: 1 });
         }
         saveCart();
+        showToast(`✅ "${productName}" fue añadido al carrito`);
     };
     
     // ==========================================================================
@@ -106,10 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addToCartButtons.length > 0) {
         addToCartButtons.forEach(button => {
             button.addEventListener('click', () => {
+                console.log("Botón 'Agregar al Carrito' fue presionado."); // <-- AÑADE ESTA LÍNEA
                 const { productId, productName, productPrice, productImage } = button.dataset;
                 addToCart(productId, productName, productPrice, productImage);
-                button.textContent = '¡Agregado!';
-                setTimeout(() => { button.textContent = 'Agregar al Carrito'; }, 1500);
             });
         });
     }
@@ -144,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const checkoutBtn = document.querySelector('.checkout-btn');
-        const tuNumeroDeWhatsApp = '542921471599'; 
+        const tuNumeroDeWhatsApp = '542921471599';
         
         checkoutBtn.addEventListener('click', () => {
             let mensaje = '¡Hola! Quisiera hacer el siguiente pedido:\n\n';
@@ -155,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 total += itemTotal;
             });
             mensaje += `*TOTAL DEL PEDIDO: $${total.toFixed(2)}*\n\nQuedo a la espera de los datos para el pago. ¡Gracias!`;
-            const linkWhatsApp = `https://wa.me/${542921471599}?text=${encodeURIComponent(mensaje)}`;
+            const linkWhatsApp = `https://wa.me/${tuNumeroDeWhatsApp}?text=${encodeURIComponent(mensaje)}`;
             window.open(linkWhatsApp, '_blank');
         });
     }
