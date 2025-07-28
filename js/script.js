@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartIcon();
 
     // ==========================================================================
-    //   8. LÓGICA PARA RENDERIZAR Y GESTIONAR LA PÁGINA DEL CARRITO (CORREGIDO)
+    //   3. LÓGICA PARA RENDERIZAR Y GESTIONAR LA PÁGINA DEL CARRITO (CORREGIDO)
     // ==========================================================================
     const cartItemsContainer = document.getElementById('cart-items-container');
     
