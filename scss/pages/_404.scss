@@ -1,0 +1,28 @@
+.not-found-section {
+    @include flex-center;
+    flex-direction: column;
+    min-height: 70vh;
+    text-align: center;
+    padding: 40px 20px;
+
+    h1 {
+        font-size: 8em;
+        margin: 0;
+        color: $color-acento-suave;
+        line-height: 1;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        color: $color-secundario;
+    }
+
+    p {
+        font-size: 1.2em;
+        color: $color-texto-principal;
+        max-width: 450px;
+        margin: 0 auto 30px auto;
+    }
+}
