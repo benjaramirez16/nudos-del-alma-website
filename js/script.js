@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productCards = document.querySelectorAll('#catalogo .product-card-link');
     const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
     const swiperContainer = document.querySelector('.featured-products-carousel');
+    const shareContainer = document.querySelector('.social-share');
 
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
@@ -106,6 +107,29 @@ document.addEventListener('DOMContentLoaded', () => {
         saveCart();
         showToast(`✅ "${productName}" fue añadido al carrito`);
     };
+    
+
+     const setupSocialSharing = () => {
+        const pageUrl = encodeURIComponent(window.location.href);
+        const pageTitle = encodeURIComponent(document.title);
+        const productMainImage = document.getElementById('main-product-image');
+        const imageUrl = productMainImage ? encodeURIComponent(productMainImage.src) : '';
+
+        const whatsappBtn = shareContainer.querySelector('.share-btn.whatsapp');
+        const facebookBtn = shareContainer.querySelector('.share-btn.facebook');
+        const pinterestBtn = shareContainer.querySelector('.share-btn.pinterest');
+
+        if(whatsappBtn) {
+            whatsappBtn.href = `https://api.whatsapp.com/send?text=¡Mira este producto!: ${pageTitle}%20${pageUrl}`;
+        }
+        if(facebookBtn) {
+            facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+        }
+        if(pinterestBtn && imageUrl) {
+            pinterestBtn.href = `https://pinterest.com/pin/create/button/?url=${pageUrl}&media=${imageUrl}&description=${pageTitle}`;
+        }
+    };
+
     
     // ==========================================================================
     //   3. EJECUCIÓN Y EVENT LISTENERS
