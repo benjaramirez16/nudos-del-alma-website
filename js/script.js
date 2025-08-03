@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productCards = document.querySelectorAll('#catalogo .product-card-link');
     const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
     const swiperContainer = document.querySelector('.featured-products-carousel');
-    const shareContainer = document.querySelector('.social-share');
+    const shareContainers = document.querySelectorAll('.social-share');
 
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
@@ -108,25 +108,32 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
 
-    const setupSocialSharing = () => {
-        const pageUrl = encodeURIComponent(window.location.href);
-        const pageTitle = encodeURIComponent(document.title);
-        const productMainImage = document.querySelector('#main-product-image, .main-image-container img');
-        const imageUrl = productMainImage ? encodeURIComponent(productMainImage.src) : '';
+    const initializeSocialSharing = (container) => {
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+    const productMainImage = document.querySelector('#main-product-image');
+    const imageUrl = productMainImage ? encodeURIComponent(productMainImage.src) : '';
 
-        const whatsappBtn = shareContainer.querySelector('.share-btn.whatsapp');
-        const facebookBtn = shareContainer.querySelector('.share-btn.facebook');
-        const pinterestBtn = shareContainer.querySelector('.share-btn.pinterest');
+    const whatsappBtn = container.querySelector('.share-btn.whatsapp');
+    const facebookBtn = container.querySelector('.share-btn.facebook');
+    const pinterestBtn = container.querySelector('.share-btn.pinterest');
 
-        if(whatsappBtn) whatsappBtn.href = `https://api.whatsapp.com/send?text=¡Mira este producto!: ${pageTitle}%20${pageUrl}`;
-        if(facebookBtn) facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-        if(pinterestBtn && imageUrl) pinterestBtn.href = `https://pinterest.com/pin/create/button/?url=${pageUrl}&media=${imageUrl}&description=${pageTitle}`;
+    if (whatsappBtn) whatsappBtn.href = `https://api.whatsapp.com/send?text=¡Mira%20este%20producto!:%20${pageTitle}%20${pageUrl}`;
+    if (facebookBtn) facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    if (pinterestBtn && imageUrl) pinterestBtn.href = `https://pinterest.com/pin/create/button/?url=${pageUrl}&media=${imageUrl}&description=${pageTitle}`;
     };
 
     
     // ==========================================================================
     //   3. EJECUCIÓN Y EVENT LISTENERS
     // ==========================================================================
+
+    // -- Compartir en Redes Sociales --
+    if (shareContainers.length > 0) {
+        shareContainers.forEach(container => {
+            initializeSocialSharing(container);
+        });
+    }
 
     // -- Menú Hamburguesa --
     if (hamburgerBtn && navMenu) {
@@ -206,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionsToAnimate.forEach(section => observer.observe(section));
     }
 
-    // -- Galería de Imágenes (LÓGICA CORREGIDA) --
     if (gallery) {
         const mainImage = gallery.querySelector('#main-product-image');
         const mainImageWebp = gallery.querySelector('#main-product-image-webp');
