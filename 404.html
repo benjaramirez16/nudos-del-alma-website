@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página no encontrada | Nudos Del Alma</title>
     <meta name="description" content="Página no encontrada en Nudos Del Alma.">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,6 +18,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div id="toast-notification" class="toast-permanent">
+        <span id="toast-message"></span>
+    </div>
+
     <header>
         <nav class="navbar">
             <div class="navbar-container">
@@ -29,7 +42,7 @@
                     <li><a href="pages/contacto.html">Contacto</a></li>
                     <li><a href="pages/preguntas-frecuentes.html">FAQ</a></li>
                 </ul>
-                <a href="pages/cart.html" class="cart-icon-container">
+                <a href="pages/cart.html" class="cart-icon-container" aria-label="Ver carrito de compras">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-item-count">0</span>
                 </a>
@@ -50,6 +63,10 @@
             <a href="index.html" class="btn">Volver al Inicio</a>
         </section>
     </main>
+
+    <a href="#" class="scroll-to-top-btn" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <footer>
         <div class="footer-container">
@@ -94,6 +111,6 @@
         </div>
     </footer>
     
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

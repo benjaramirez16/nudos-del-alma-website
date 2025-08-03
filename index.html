@@ -13,10 +13,12 @@
     <meta property="og:url" content="https://benjaramirez16.github.io/NudosDelAlma/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nudos Del Alma Macrame & Deco">
-    <link rel="preload" fetchpriority="high" as="image" href="images/hero-background.webp" type="image/jpeg">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+
+    <link rel="preload" fetchpriority="high" as="image" href="images/hero-background.webp" type="image/webp">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
     <link rel="manifest" href="./site.webmanifest">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +32,9 @@
         <div class="spinner"></div>
     </div>
     <div id="toast-notification" class="toast-permanent">
-    <span id="toast-message"></span>
+        <span id="toast-message"></span>
     </div>
+
     <header>
         <nav class="navbar">
             <div class="navbar-container">
@@ -49,7 +52,7 @@
                     <li><a href="pages/contacto.html">Contacto</a></li>
                     <li><a href="pages/preguntas-frecuentes.html">FAQ</a></li>
                 </ul>
-                <a href="pages/cart.html" class="cart-icon-container">
+                <a href="pages/cart.html" class="cart-icon-container" aria-label="Ver carrito de compras">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-item-count">0</span>
                 </a>
@@ -91,7 +94,7 @@
                     <div class="category-title">Tejidos</div>
                 </a>
                 <a href="pages/productos.html" class="category-card">
-                     <picture>
+                   <picture>
                         <source srcset="images/ilustrativa-index.webp" type="image/webp">
                         <source srcset="images/ilustrativa-index-opt.jpg" type="image/jpeg">
                         <img src="images/ilustrativa-index-opt.jpg" alt="Ambiente decorado con elementos artesanales">
@@ -117,7 +120,7 @@
             </div>
         </section>
         
-        <section id="testimonials">
+        <section id="testimonials" class="animate-on-scroll">
             <h2>Lo que dicen nuestros clientes</h2>
             <div class="testimonials-container">
                 <article class="testimonial-card">
@@ -141,9 +144,11 @@
             </div>
         </section>
     </main>
-        <a href="#" class="scroll-to-top-btn" aria-label="Volver arriba">
-            <i class="fas fa-arrow-up"></i>
-        </a>
+
+    <a href="#" class="scroll-to-top-btn" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <footer>
         <div class="footer-container">
             <div class="footer-col">

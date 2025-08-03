@@ -213,19 +213,27 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionsToAnimate.forEach(section => observer.observe(section));
     }
 
-    // -- Galería de Imágenes --
-    if (mainImage && thumbnails.length > 0) {
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                const largeJpg = thumb.dataset.largeJpg;
-                const largeWebp = thumb.dataset.largeWebp;
-                mainImage.src = largeJpg;
-                const mainImageWebp = document.getElementById('main-product-image-webp');
-                if (mainImageWebp) mainImageWebp.srcset = largeWebp;
-                thumbnails.forEach(innerThumb => innerThumb.classList.remove('active-thumbnail'));
-                thumb.classList.add('active-thumbnail');
+    // -- Galería de Imágenes (LÓGICA CORREGIDA) --
+    const gallery = document.querySelector('.product-image-gallery');
+    if (gallery) {
+        const mainImage = gallery.querySelector('#main-product-image');
+        const mainImageWebp = gallery.querySelector('#main-product-image-webp');
+        const thumbnails = gallery.querySelectorAll('.thumbnail-image');
+
+        if (mainImage && thumbnails.length > 0) {
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const largeJpg = thumb.dataset.largeJpg;
+                    const largeWebp = thumb.dataset.largeWebp;
+
+                    if (mainImage && largeJpg) mainImage.src = largeJpg;
+                    if (mainImageWebp && largeWebp) mainImageWebp.srcset = largeWebp;
+                    
+                    thumbnails.forEach(innerThumb => innerThumb.classList.remove('active-thumbnail'));
+                    thumb.classList.add('active-thumbnail');
+                });
             });
-        });
+        }
     }
 
     // -- Filtro de Productos --
