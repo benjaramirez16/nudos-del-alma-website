@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
     const swiperContainer = document.querySelector('.featured-products-carousel');
     const shareContainers = document.querySelectorAll('.social-share');
+    const cookieBanner = document.getElementById('cookie-banner'); 
+    const acceptCookiesBtn = document.getElementById('accept-cookies-btn'); 
 
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
@@ -127,6 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     //   3. EJECUCIÓN Y EVENT LISTENERS
     // ==========================================================================
+
+    // -- Lógica del Banner de Consentimiento --
+    if (cookieBanner && acceptCookiesBtn && !localStorage.getItem('cookiesAccepted')) {
+        setTimeout(() => {
+            cookieBanner.classList.add('show');
+        }, 2000);
+    }
+
+    if (acceptCookiesBtn) {
+        acceptCookiesBtn.addEventListener('click', () => {
+            cookieBanner.classList.remove('show');
+            localStorage.setItem('cookiesAccepted', 'true');
+        });
+    }
 
     // -- Compartir en Redes Sociales --
     if (shareContainers.length > 0) {

@@ -1,0 +1,42 @@
+// scss/components/_cookie-banner.scss
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba($color-primario, 0.95);
+    color: $color-blanco;
+    padding: 20px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+    z-index: 10001; // Un z-index alto para estar por encima de todo
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    // Estado inicial (oculto)
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+
+    // Clase que añadiremos con JS para mostrarlo
+    &.show {
+        transform: translateY(0);
+    }
+
+    p {
+        margin: 0;
+        max-width: 700px;
+        font-size: 0.9em;
+    }
+
+    .btn {
+        @include button-style($color-secundario, $color-blanco, darken($color-secundario, 10%));
+        padding: 8px 20px; // Un poco más pequeño que el botón principal
+        flex-shrink: 0; // Evita que el botón se encoja
+    }
+
+    @include breakpoint(768px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
